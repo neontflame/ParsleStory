@@ -1,0 +1,16 @@
+back:
+	bg tile nmber:
+		bS: background Style?
+		no: variation
+		type: bg behavior
+		x, y: self-explanatory
+		rx, ry: definetely parallax
+		front: is it in front of tiles ?
+info:
+	tS: tile style ?
+
+tile:
+	u: tile variation
+	no: tile subvariation number
+	x, y: self-explanatory
+	zM: z-index maybe ?

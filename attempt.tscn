@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d222uykm3m2b6"]
+
+[ext_resource type="PackedScene" uid="uid://dplpo4ofxgkqw" path="res://TheMaples/MapleMap.tscn" id="1_5s177"]
+
+[node name="Attempt" type="Node2D" unique_id=727632646]
+
+[node name="MapleMap" parent="." unique_id=1807011013 instance=ExtResource("1_5s177")]

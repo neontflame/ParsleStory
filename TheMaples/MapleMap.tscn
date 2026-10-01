@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dplpo4ofxgkqw"]
+
+[ext_resource type="Script" uid="uid://do7l2hu7pc2g3" path="res://TheMaples/MapleMap.gd" id="1_ruoou"]
+
+[node name="MapleMap" type="Node2D" unique_id=1807011013]
+script = ExtResource("1_ruoou")
+
+[node name="BGBack" type="Node2D" parent="." unique_id=1332102358]
+
+[node name="Tiles" type="Node2D" parent="." unique_id=1928304312]
+
+[node name="BGFront" type="Node2D" parent="." unique_id=977877130]

@@ -8,7 +8,7 @@ Currently only tested with GMS v83.
 
 As in folders:
 
-- [x] Map (partially)
+- [x] Map (full render!)
 - [x] Back
 - [x] Tile
 - [x] Obj
@@ -17,6 +17,7 @@ As in folders:
 As in everything else (if I ever get to that):
 
 - [ ] Footholds
+- [ ] Ropes
 - [ ] NPCs
 - [ ] Mobs
 - [ ] Portals

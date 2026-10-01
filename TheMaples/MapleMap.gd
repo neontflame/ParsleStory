@@ -1,12 +1,5 @@
 extends MapleNode
 
-enum VRBDir {
-	TOP,
-	LEFT,
-	BOTTOM,
-	RIGHT
-}
-
 @export var mapToLoad:String = "Map0/000010000"
 
 # bunch of stuff taken from the .img
@@ -23,7 +16,7 @@ var moveLimit:int = 0
 var mapMark:String = ''
 var swim:int = 0
 var fieldLimit:int = 0
-var VRBounds:Array[int] = [0, 0, 0, 0] #top, left, bottom, right
+var VRBounds:Array[int] = [-1, -1, -1, -1] #top, left, bottom, right
 var fly:int = 0
 var noMapCmd:int = 0
 var onFirstUserEnter:String = ''
@@ -38,14 +31,18 @@ func lowParse(thing:Dictionary):
 	match thing["_dirName"]:
 		"info":
 			triggerLowerParse(thing)
+			return
 		"back":
 			makeBg(thing)
+			return
 		"life":
 			triggerLowerParse(thing)
+			return
 		"reactor":
 			pass
 		"foothold":
 			makeFoothold(thing)
+			return
 		"ladderRope":
 			pass
 		"miniMap":
@@ -59,6 +56,7 @@ func lowParse(thing:Dictionary):
 			if thing.has("tile"):
 				if thing["info"].has("tS"):
 					makeTile(thing["info"]["tS"]["_value"], thing["tile"])
+			return
 
 #region Makes stuff
 func makeBg(thing:Dictionary):
@@ -102,6 +100,8 @@ func makeBg(thing:Dictionary):
 			
 			backery.setupBehavior(int(thingle["type"]["_value"]))
 
+var boundaries:Array[int] = [-1, -1, -1, -1] #top, left, bottom, right
+
 func makeTile(type:String, thing:Dictionary):
 	for thingie in thing:
 		var thingle = thing[thingie]
@@ -121,6 +121,21 @@ func makeTile(type:String, thing:Dictionary):
 			tilery.z_index += 100
 			
 			$Tiles.add_child(tilery)
+			setBoundary(pos.y, pos.x, pos.y, pos.x)
+	
+	if VRBounds == [-1, -1, -1, -1]:
+		print("Hey man. This Shit is not Set")
+		VRBounds = boundaries
+
+func setBoundary(top:int, left:int, bottom:int, right:int):
+	if boundaries[0] == -1 or boundaries[0] > top:
+		boundaries[0] = top
+	if boundaries[1] == -1 or boundaries[1] > left:
+		boundaries[1] = left
+	if boundaries[2] == -1 or boundaries[2] < bottom:
+		boundaries[2] = bottom
+	if boundaries[3] == -1 or boundaries[3] < right:
+		boundaries[3] = right
 
 func makeObj(thing:Dictionary):
 	for thingie in thing:
@@ -155,11 +170,11 @@ func makeFoothold(thing:Dictionary):
 			for thingies in thingle:
 				var thingery = thingle[thingies]
 				if thingery is Dictionary:
-					# it's even funnier the second time!
+					# it's even funnier the *third time!
 					for footID in thingery:
 						var footness = thingery[footID]
 						if footness is Dictionary:
-							print(footness)
+							#print(footness)
 							var pos1:Vector2 = Vector2i(
 								footness["x1"]["_value"],
 								footness["y1"]["_value"]
@@ -187,13 +202,13 @@ func triggerLowerParse(thing:Dictionary):
 func lowerParse(thing:Dictionary):
 	match(thing['_dirName']):
 		'VRTop':
-			VRBounds[VRBDir.TOP] = thing['_value']
+			VRBounds[0] = thing['_value']
 		'VRLeft':
-			VRBounds[VRBDir.LEFT] = thing['_value']
+			VRBounds[1] = thing['_value']
 		'VRBottom':
-			VRBounds[VRBDir.BOTTOM] = thing['_value']
+			VRBounds[2] = thing['_value']
 		'VRRight':
-			VRBounds[VRBDir.RIGHT] = thing['_value']
+			VRBounds[3] = thing['_value']
 		_:
 			if thing.has("_value"):
 				set(thing['_dirName'], thing['_value'])

@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://bqrtdiffow6i5" path="res://TheMaples/MapleTile.gd" id="1_1x6id"]
 
 [node name="MapleTile" type="Node2D" unique_id=915435030 node_paths=PackedStringArray("tile")]
-z_as_relative = false
 script = ExtResource("1_1x6id")
 tile = NodePath("Tile")
 
 [node name="Tile" type="Sprite2D" parent="." unique_id=1421525904]
-z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 centered = false

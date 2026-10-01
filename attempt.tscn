@@ -5,4 +5,3 @@
 [node name="Attempt" type="Node2D" unique_id=727632646]
 
 [node name="MapleMap" parent="." unique_id=1807011013 instance=ExtResource("1_5s177")]
-mapToLoad = "Map1/105090000"

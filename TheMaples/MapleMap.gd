@@ -9,6 +9,7 @@ enum VRBDir {
 
 @export var mapToLoad:String = "Map0/000010000"
 
+# bunch of stuff taken from the .img
 var version:int = 0
 var cloud:int = 0
 var town:int = 0
@@ -44,8 +45,7 @@ func lowParse(thing:Dictionary):
 		"reactor":
 			pass
 		"foothold":
-			# these are collisions. hold off for now
-			pass
+			makeFoothold(thing)
 		"ladderRope":
 			pass
 		"miniMap":
@@ -60,6 +60,7 @@ func lowParse(thing:Dictionary):
 				if thing["info"].has("tS"):
 					makeTile(thing["info"]["tS"]["_value"], thing["tile"])
 
+#region Makes stuff
 func makeBg(thing:Dictionary):
 	for thingie in thing:
 		var thingle = thing[thingie]
@@ -86,20 +87,20 @@ func makeBg(thing:Dictionary):
 			
 			if isOnFront:
 				$BGFront.add_child(backery)
+				backery.z_index = 3000 + int(thingie)
 			else:
 				$BGBack.add_child(backery)
+				backery.z_index = -3000 + int(thingie)
 				
 			backery.setup(bgSource, variation)
 			backery.position = pos
 			backery.copySpacing = copySpacing
 			backery.parallax.scroll_scale = scrollest
-			backery.z_index = -3000 + int(thingie)
 			
 			backery.textureRect.flip_h = isFlipped
 			backery.textureRect.modulate.a = thingle["a"]["_value"] / 255.0
 			
 			backery.setupBehavior(int(thingle["type"]["_value"]))
-
 
 func makeTile(type:String, thing:Dictionary):
 	for thingie in thing:
@@ -116,8 +117,8 @@ func makeTile(type:String, thing:Dictionary):
 			var tilery = load("res://TheMaples/MapleTile.tscn").instantiate()
 			tilery.setup(type, variation, subvar)
 			tilery.position = pos
-			# Weird fuckin mystery number but hey if it works
-			tilery.z_index += (4 - possiblyZIndex) * 10
+			# Weird fuckin mystery equation but hey if it works
+			tilery.z_index += 100
 			
 			$Tiles.add_child(tilery)
 
@@ -146,6 +147,37 @@ func makeObj(thing:Dictionary):
 			
 			$Obj.add_child(objectery)
 
+func makeFoothold(thing:Dictionary):
+	for thingie in thing:
+		var thingle = thing[thingie]
+		if thingle is Dictionary:
+			# it's even funnier the second time!
+			for thingies in thingle:
+				var thingery = thingle[thingies]
+				if thingery is Dictionary:
+					# it's even funnier the second time!
+					for footID in thingery:
+						var footness = thingery[footID]
+						if footness is Dictionary:
+							print(footness)
+							var pos1:Vector2 = Vector2i(
+								footness["x1"]["_value"],
+								footness["y1"]["_value"]
+							)
+							var pos2:Vector2 = Vector2i(
+								footness["x2"]["_value"],
+								footness["y2"]["_value"]
+							)
+							var canFallThrough:bool = true
+							if footness.has("forbidFallDown"):
+								canFallThrough = (footness["forbidFallDown"]["_value"] == 0.0)
+							
+							var footery = load("res://TheMaples/MapleFoothold.tscn").instantiate()
+							footery.createFootholdLine(pos1, pos2, canFallThrough)
+							$Footholds.add_child(footery)
+#endregion
+
+# other cool thingies
 func triggerLowerParse(thing:Dictionary):
 	for thingie in thing:
 		var thingle = thing[thingie]

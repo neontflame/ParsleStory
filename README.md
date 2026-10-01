@@ -16,7 +16,7 @@ As in folders:
 
 As in everything else (if I ever get to that):
 
-- [ ] Footholds
+- [x] Footholds
 - [ ] Ropes
 - [ ] NPCs
 - [ ] Mobs

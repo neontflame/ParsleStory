@@ -11,4 +11,6 @@ script = ExtResource("1_ruoou")
 
 [node name="Obj" type="Node2D" parent="." unique_id=793489723]
 
+[node name="Footholds" type="Node2D" parent="." unique_id=1965145288]
+
 [node name="BGFront" type="Node2D" parent="." unique_id=977877130]

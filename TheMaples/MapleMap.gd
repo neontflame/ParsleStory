@@ -48,7 +48,7 @@ func lowParse(thing:Dictionary):
 		"miniMap":
 			pass
 		"portal":
-			pass
+			makePortal(thing)
 		_:
 			#ACTUAL TILES !!! HALLELUJAH
 			if thing.has("obj"):
@@ -174,7 +174,6 @@ func makeFoothold(thing:Dictionary):
 					for footID in thingery:
 						var footness = thingery[footID]
 						if footness is Dictionary:
-							#print(footness)
 							var pos1:Vector2 = Vector2i(
 								footness["x1"]["_value"],
 								footness["y1"]["_value"]
@@ -190,6 +189,26 @@ func makeFoothold(thing:Dictionary):
 							var footery = load("res://TheMaples/MapleFoothold.tscn").instantiate()
 							footery.createFootholdLine(pos1, pos2, canFallThrough)
 							$Footholds.add_child(footery)
+
+func makePortal(thing:Dictionary):
+	for thingie in thing:
+		var thingle = thing[thingie]
+		if thingle is Dictionary:
+			var portalName:String = thingle["pn"]["_value"]
+			var portalType:int = int(thingle["pt"]["_value"])
+			var pos:Vector2 = Vector2(
+				thingle["x"]["_value"],
+				thingle["y"]["_value"]
+			)
+			var targetMap:int = int(thingle["tm"]["_value"])
+			var targetPortal:String = thingle["tn"]["_value"]
+			
+			var portal = load("res://TheMaples/MaplePortal.tscn").instantiate()
+			portal.setup(portalName, portalType)
+			portal.position = pos
+			portal.targetMap = targetMap
+			portal.targetPortal = targetPortal
+			$MapHelpers.add_child(portal)
 #endregion
 
 # other cool thingies

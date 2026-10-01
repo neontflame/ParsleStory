@@ -20,7 +20,7 @@ As in everything else (if I ever get to that):
 - [ ] Ropes
 - [ ] NPCs
 - [ ] Mobs
-- [ ] Portals
+- [x] Portals (barely)
 
 ## Alright now how do I obtain the files to use this
 

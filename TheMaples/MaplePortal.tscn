@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://sqdkcela8w5n"]
+
+[ext_resource type="Script" uid="uid://db63m6h3ookyd" path="res://TheMaples/MaplePortal.gd" id="1_8kqh5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hsonh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsonh"]
+size = Vector2(1, 1)
+
+[node name="MaplePortal" type="Node2D" unique_id=929613693 node_paths=PackedStringArray("sprite", "spriteStatic", "portalAccessArea", "portalCollision")]
+script = ExtResource("1_8kqh5")
+sprite = NodePath("Portalsprite")
+spriteStatic = NodePath("PortalspriteStatic")
+portalAccessArea = NodePath("PortalAccess")
+portalCollision = NodePath("PortalAccess/Collision")
+
+[node name="Portalsprite" type="AnimatedSprite2D" parent="." unique_id=747088854]
+sprite_frames = SubResource("SpriteFrames_hsonh")
+centered = false
+
+[node name="PortalspriteStatic" type="Sprite2D" parent="." unique_id=1513090529]
+centered = false
+
+[node name="PortalAccess" type="Area2D" parent="." unique_id=1821397881]
+
+[node name="Collision" type="CollisionShape2D" parent="PortalAccess" unique_id=819196061]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hsonh")
+
+[connection signal="frame_changed" from="Portalsprite" to="." method="onFrameChange"]
+[connection signal="frame_changed" from="Portalsprite" to="." method="onFrameChanged"]

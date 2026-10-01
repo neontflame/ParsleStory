@@ -14,3 +14,25 @@ tile:
 	no: tile subvariation number
 	x, y: self-explanatory
 	zM: z-index maybe ?
+
+portal stuff:
+	on map load:
+		- pn: portal name, basically what kind of portal is this
+			- sp: start point
+			- out00: comes out this end
+			- in00: comes in this end
+		- pt: portal type. It's more specific
+			- 0: Start point
+			- 1: Invisible
+			- 2: Visible
+			- 3: Collision
+			- 4: Changeable
+			- 5: Changeable invisible
+			- 6: TownPortal point
+			- 7: Script
+			- 8: Script invisible
+			- 9: Collision script
+			- 10: Hidden
+		- x, y: self-explanatory
+		- tm: Target map
+		- tn: no clue

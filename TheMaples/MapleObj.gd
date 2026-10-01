@@ -18,14 +18,7 @@ func parseObj(type:String, subtype:String, subsubtype:String):
 	var theParsley = masterParse[type][subtype][subsubtype]["0"]
 	# Why is there a trailing 0 now. It gets More Ridiculous by the second
 	
-	var img = Image.new()
-	img.load_png_from_buffer(
-		Marshalls.base64_to_raw(theParsley["_image"])
-	)
-	# obj.texture = ImageTexture.create_from_image(img)
 	parseAnimation(masterParse[type][subtype][subsubtype])
-	
-	obj.offset = Vector2i(theParsley["origin"]["_x"], theParsley["origin"]["_y"]) * -1
 	if theParsley.has("z"):
 		obj.z_index = theParsley["z"]["_value"]
 

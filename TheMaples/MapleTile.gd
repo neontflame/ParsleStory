@@ -1,7 +1,7 @@
 extends MapleNode
 class_name MapleTile
 
-@export var theTile:Sprite2D
+@export var tile:Sprite2D
 var variation:String = ''
 var subvar:String = ''
 
@@ -16,9 +16,9 @@ func parseTile(type:String, subtype:String):
 	img.load_png_from_buffer(
 		Marshalls.base64_to_raw(theParsley["_image"])
 	)
-	theTile.texture = ImageTexture.create_from_image(img)
-	theTile.offset = Vector2i(theParsley["origin"]["_x"], theParsley["origin"]["_y"]) * -1
-	theTile.z_index = theParsley["z"]["_value"]
+	tile.texture = ImageTexture.create_from_image(img)
+	tile.offset = Vector2i(theParsley["origin"]["_x"], theParsley["origin"]["_y"]) * -1
+	tile.z_index = theParsley["z"]["_value"]
 	
 	variation = type
 	subvar = subtype

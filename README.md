@@ -11,7 +11,7 @@ As in folders:
 - [x] Map (partially)
 - [x] Back
 - [x] Tile
-- [ ] Obj
+- [x] Obj
 - [ ] WorldMap (if ever)
 
 As in everything else (if I ever get to that):
@@ -19,6 +19,7 @@ As in everything else (if I ever get to that):
 - [ ] Footholds
 - [ ] NPCs
 - [ ] Mobs
+- [ ] Portals
 
 ## Alright now how do I obtain the files to use this
 

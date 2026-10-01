@@ -49,10 +49,10 @@ func parseBG(type:String):
 # up and down and all around
 func setupBehavior(_behavior:int):
 	behavior = _behavior
-	print(bgType, variation, behavior)
+	# print(bgType, variation, behavior)
+	
+	# ok so normal does nothing
 	match (behavior):
-		BackgroundBehavior.NORMAL:
-			pass
 		BackgroundBehavior.HTILED:
 			parallax.repeat_size = (textureRect.size + copySpacing) * Vector2(1.0, 0.0)
 		BackgroundBehavior.VTILED:
@@ -72,6 +72,8 @@ func setupBehavior(_behavior:int):
 		BackgroundBehavior.VMOVEB:
 			parallax.repeat_size = (textureRect.size + copySpacing)
 			parallax.autoscroll = parallax.scroll_scale.x * Vector2(0.0, 1.0) * 200
+		_:
+			pass
 	# might not be the Ideal course of action but it works i guess !!
 	var repeatThing = ceil((viewportMiddle * 2) / parallax.repeat_size)
 	parallax.repeat_times = repeatThing.x + 2

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c5hrwq83jfhhv"]
+
+[ext_resource type="Script" uid="uid://d2aeh80etr7xr" path="res://TheMaples/MapleObj.gd" id="1_ylo6b"]
+
+[node name="MapleObj" type="Node2D" unique_id=915435030 node_paths=PackedStringArray("obj")]
+z_as_relative = false
+script = ExtResource("1_ylo6b")
+obj = NodePath("Object")
+
+[node name="Object" type="Sprite2D" parent="." unique_id=1421525904]
+z_index = 1
+centered = false

@@ -54,6 +54,8 @@ func lowParse(thing:Dictionary):
 			pass
 		_:
 			#ACTUAL TILES !!! HALLELUJAH
+			if thing.has("obj"):
+				makeObj(thing["obj"])
 			if thing.has("tile"):
 				if thing["info"].has("tS"):
 					makeTile(thing["info"]["tS"]["_value"], thing["tile"])
@@ -117,15 +119,30 @@ func makeTile(type:String, thing:Dictionary):
 			# Weird fuckin mystery number but hey if it works
 			tilery.z_index += (4 - possiblyZIndex) * 10
 			
-			#print(
-				#"new tile (%s)! variation: %s | subvariation: %s | x: %s | y: %s | z-index?: %s" % [
-					#type,
-					#variation, subvar,
-					#pos.x, pos.y,
-					#possiblyZIndex
-				#]
-			#)
 			$Tiles.add_child(tilery)
+
+func makeObj(thing:Dictionary):
+	for thingie in thing:
+		var thingle = thing[thingie]
+		if thingle is Dictionary:
+			var pos:Vector2 = Vector2i(
+				thingle["x"]["_value"],
+				thingle["y"]["_value"],
+			)
+			var possiblyZIndex:int = round(thingle["z"]["_value"])
+			
+			var objectStyle:String = thingle["oS"]["_value"]
+			var variation:String = thingle["l0"]["_value"]
+			var subvar:String = thingle["l1"]["_value"]
+			var subsubvar:String = thingle["l2"]["_value"]
+			
+			var objectery = load("res://TheMaples/MapleObj.tscn").instantiate()
+			objectery.setup(objectStyle, variation, subvar, subsubvar)
+			objectery.position = pos
+			# Weird fuckin mystery number again !
+			objectery.z_index += possiblyZIndex
+			
+			$Obj.add_child(objectery)
 
 func triggerLowerParse(thing:Dictionary):
 	for thingie in thing:

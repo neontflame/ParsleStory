@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://d2aeh80etr7xr" path="res://TheMaples/MapleObj.gd" id="1_ylo6b"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_5s177"]
+
 [node name="MapleObj" type="Node2D" unique_id=915435030 node_paths=PackedStringArray("obj")]
 z_as_relative = false
 script = ExtResource("1_ylo6b")
-obj = NodePath("Object")
+obj = NodePath("AnimatedSprite2D")
 
-[node name="Object" type="Sprite2D" parent="." unique_id=1421525904]
-z_index = 1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=940592972]
+sprite_frames = SubResource("SpriteFrames_5s177")
 centered = false
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="onFrameChange"]

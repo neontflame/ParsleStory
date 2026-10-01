@@ -93,7 +93,7 @@ func makeBg(thing:Dictionary):
 			backery.position = pos
 			backery.copySpacing = copySpacing
 			backery.parallax.scroll_scale = scrollest
-			backery.z_index = -1000 + int(thingie)
+			backery.z_index = -3000 + int(thingie)
 			
 			backery.textureRect.flip_h = isFlipped
 			backery.textureRect.modulate.a = thingle["a"]["_value"] / 255.0
@@ -135,12 +135,14 @@ func makeObj(thing:Dictionary):
 			var variation:String = thingle["l0"]["_value"]
 			var subvar:String = thingle["l1"]["_value"]
 			var subsubvar:String = thingle["l2"]["_value"]
+			var isFlipped:bool = (thingle["f"]["_value"] == 1.0)
 			
 			var objectery = load("res://TheMaples/MapleObj.tscn").instantiate()
 			objectery.setup(objectStyle, variation, subvar, subsubvar)
 			objectery.position = pos
 			# Weird fuckin mystery number again !
 			objectery.z_index += possiblyZIndex
+			objectery.obj.flip_h = isFlipped
 			
 			$Obj.add_child(objectery)
 

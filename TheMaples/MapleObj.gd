@@ -21,7 +21,8 @@ func parseObj(type:String, subtype:String, subsubtype:String):
 	obj.texture = ImageTexture.create_from_image(img)
 	
 	obj.offset = Vector2i(theParsley["origin"]["_x"], theParsley["origin"]["_y"]) * -1
-	obj.z_index = theParsley["z"]["_value"]
+	if theParsley.has("z"):
+		obj.z_index = theParsley["z"]["_value"]
 	
 	variation = type
 	subvar = subtype

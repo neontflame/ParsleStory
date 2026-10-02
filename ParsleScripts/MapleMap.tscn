@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dplpo4ofxgkqw"]
 
-[ext_resource type="Script" uid="uid://do7l2hu7pc2g3" path="res://TheMaples/MapleMap.gd" id="1_ruoou"]
+[ext_resource type="Script" uid="uid://do7l2hu7pc2g3" path="res://ParsleScripts/MapleMap.gd" id="1_ruoou"]
 
 [node name="MapleMap" type="Node2D" unique_id=1807011013 node_paths=PackedStringArray("bgmPlayer")]
 script = ExtResource("1_ruoou")

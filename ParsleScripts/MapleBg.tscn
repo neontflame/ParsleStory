@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c37g0c2tool35"]
 
-[ext_resource type="Script" uid="uid://5uhrq8n3i4f7" path="res://TheMaples/MapleBg.gd" id="1_cpl7h"]
+[ext_resource type="Script" uid="uid://5uhrq8n3i4f7" path="res://ParsleScripts/MapleBg.gd" id="1_cpl7h"]
 
 [node name="MapleBg" type="Node2D" unique_id=915435030 node_paths=PackedStringArray("textureRect", "parallax")]
 z_as_relative = false

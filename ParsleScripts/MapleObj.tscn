@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5hrwq83jfhhv"]
 
-[ext_resource type="Script" uid="uid://d2aeh80etr7xr" path="res://TheMaples/MapleObj.gd" id="1_ylo6b"]
+[ext_resource type="Script" uid="uid://d2aeh80etr7xr" path="res://ParsleScripts/MapleObj.gd" id="1_ylo6b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5s177"]
 

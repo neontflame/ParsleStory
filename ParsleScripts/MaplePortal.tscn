@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://sqdkcela8w5n"]
 
-[ext_resource type="Script" uid="uid://db63m6h3ookyd" path="res://TheMaples/MaplePortal.gd" id="1_8kqh5"]
+[ext_resource type="Script" uid="uid://db63m6h3ookyd" path="res://ParsleScripts/MaplePortal.gd" id="1_8kqh5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hsonh"]
 
@@ -28,5 +28,5 @@ centered = false
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_hsonh")
 
-[connection signal="frame_changed" from="Portalsprite" to="." method="onFrameChange"]
 [connection signal="frame_changed" from="Portalsprite" to="." method="onFrameChanged"]
+[connection signal="frame_changed" from="Portalsprite" to="." method="onFrameChange"]

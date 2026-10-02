@@ -1,6 +1,8 @@
 extends Line2D
 class_name MapleFootholdLine
 
+var fuckinLayer = 0
+
 func createFootholdLine(pos1:Vector2i, pos2:Vector2i, jumpthru:bool):
 	clear_points()
 	global_position = pos1
@@ -8,6 +10,8 @@ func createFootholdLine(pos1:Vector2i, pos2:Vector2i, jumpthru:bool):
 	add_point(Vector2.ZERO)
 	add_point(Vector2(posDois))
 	createCollision(jumpthru)
+	
+	position.y += 8
 
 func createCollision(jumpthru:bool):
 	for i in points.size() - 1:

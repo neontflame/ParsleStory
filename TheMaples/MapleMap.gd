@@ -1,4 +1,5 @@
 extends MapleNode
+class_name MapleMap
 
 @export var mapToLoad:String = "Map0/000010000"
 
@@ -118,7 +119,7 @@ func makeTile(type:String, thing:Dictionary):
 			tilery.setup(type, variation, subvar)
 			tilery.position = pos
 			# Weird fuckin mystery equation but hey if it works
-			tilery.z_index += 50
+			tilery.z_index += 100
 			
 			$Tiles.add_child(tilery)
 			setBoundary(pos.y, pos.x, pos.y, pos.x)
@@ -184,10 +185,12 @@ func makeFoothold(thing:Dictionary):
 							)
 							var canFallThrough:bool = true
 							if footness.has("forbidFallDown"):
-								canFallThrough = (footness["forbidFallDown"]["_value"] == 0.0)
+								canFallThrough = footness["forbidFallDown"]["_value"] != 1.0
+								print(canFallThrough)
 							
 							var footery = load("res://TheMaples/MapleFoothold.tscn").instantiate()
 							footery.createFootholdLine(pos1, pos2, canFallThrough)
+							footery.layer = thingie
 							$Footholds.add_child(footery)
 
 func makePortal(thing:Dictionary):

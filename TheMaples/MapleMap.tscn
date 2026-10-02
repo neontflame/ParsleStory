@@ -6,13 +6,19 @@
 script = ExtResource("1_ruoou")
 
 [node name="BGBack" type="Node2D" parent="." unique_id=1332102358]
+z_as_relative = false
 
 [node name="Tiles" type="Node2D" parent="." unique_id=1928304312]
+z_as_relative = false
 
 [node name="Obj" type="Node2D" parent="." unique_id=793489723]
+z_as_relative = false
 
 [node name="Footholds" type="Node2D" parent="." unique_id=1965145288]
+z_as_relative = false
 
 [node name="MapHelpers" type="Node2D" parent="." unique_id=1136682773]
+z_as_relative = false
 
 [node name="BGFront" type="Node2D" parent="." unique_id=977877130]
+z_as_relative = false

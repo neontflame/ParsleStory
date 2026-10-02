@@ -18,7 +18,7 @@ func parseTile(type:String, subtype:String):
 	)
 	tile.texture = ImageTexture.create_from_image(img)
 	tile.offset = Vector2i(theParsley["origin"]["_x"], theParsley["origin"]["_y"]) * -1
-	z_index += theParsley["z"]["_value"] + 10
+	# z_index -= theParsley["z"]["_value"]
 	
 	variation = type
 	subvar = subtype

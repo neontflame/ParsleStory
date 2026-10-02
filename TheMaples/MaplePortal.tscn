@@ -8,6 +8,7 @@
 size = Vector2(1, 1)
 
 [node name="MaplePortal" type="Node2D" unique_id=929613693 node_paths=PackedStringArray("sprite", "spriteStatic", "portalAccessArea", "portalCollision")]
+z_as_relative = false
 script = ExtResource("1_8kqh5")
 sprite = NodePath("Portalsprite")
 spriteStatic = NodePath("PortalspriteStatic")

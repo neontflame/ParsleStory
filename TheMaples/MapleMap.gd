@@ -110,7 +110,7 @@ func makeTile(type:String, thing:Dictionary):
 				thingle["x"]["_value"],
 				thingle["y"]["_value"],
 			)
-			var possiblyZIndex:int = round(thingle["zM"]["_value"])
+			#var possiblyZIndex:int = round(thingle["zM"]["_value"])
 			var variation:String = thingle["u"]["_value"]
 			var subvar:int = round(thingle["no"]["_value"])
 			
@@ -118,7 +118,7 @@ func makeTile(type:String, thing:Dictionary):
 			tilery.setup(type, variation, subvar)
 			tilery.position = pos
 			# Weird fuckin mystery equation but hey if it works
-			tilery.z_index += 100
+			tilery.z_index += 50
 			
 			$Tiles.add_child(tilery)
 			setBoundary(pos.y, pos.x, pos.y, pos.x)

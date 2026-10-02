@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ytlob6s4su0m" path="res://TheMaples/MapleFoothold.gd" id="1_kkvcj"]
 
 [node name="MapleFoothold" type="Line2D" unique_id=147041645]
+visible = false
 z_index = 4096
 script = ExtResource("1_kkvcj")
 

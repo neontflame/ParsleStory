@@ -20,7 +20,7 @@ func parseObj(type:String, subtype:String, subsubtype:String):
 	
 	parseAnimation(masterParse[type][subtype][subsubtype])
 	if theParsley.has("z"):
-		obj.z_index += theParsley["z"]["_value"] + 100
+		obj.z_index += theParsley["z"]["_value"] + 95
 
 var frameOffsetIndex:Dictionary = {
 }

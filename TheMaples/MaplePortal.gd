@@ -54,11 +54,11 @@ func getCoolAnim(willBeSwitched:String, type:int):
 	match willBeSwitched:
 		_:
 			if willBeSwitched == 'out00' or willBeSwitched == 'in00':
-				if type == 0:
+				if type == 2:
 					return 'pv'
 				if type == 1:
 					return 'ph'
-				if type == 2:
+				if type == 0:
 					return 'psh'
 			return willBeSwitched
 

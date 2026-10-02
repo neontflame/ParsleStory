@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://ytlob6s4su0m" path="res://TheMaples/MapleFoothold.gd" id="1_kkvcj"]
 
 [node name="MapleFoothold" type="Line2D" unique_id=147041645]
-visible = false
 z_index = 4096
 width = 16.0
 default_color = Color(1, 1, 1, 0.54509807)

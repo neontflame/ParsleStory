@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://do7l2hu7pc2g3" path="res://TheMaples/MapleMap.gd" id="1_ruoou"]
 
-[node name="MapleMap" type="Node2D" unique_id=1807011013]
+[node name="MapleMap" type="Node2D" unique_id=1807011013 node_paths=PackedStringArray("bgmPlayer")]
 script = ExtResource("1_ruoou")
+bgmPlayer = NodePath("BGMusic")
 
 [node name="BGBack" type="Node2D" parent="." unique_id=1332102358]
 z_as_relative = false
@@ -22,3 +23,5 @@ z_as_relative = false
 
 [node name="BGFront" type="Node2D" parent="." unique_id=977877130]
 z_as_relative = false
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=728705158]

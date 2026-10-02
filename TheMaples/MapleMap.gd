@@ -2,6 +2,7 @@ extends MapleNode
 class_name MapleMap
 
 @export var mapToLoad:String = "Map0/000010000"
+@export var bgmPlayer:AudioStreamPlayer
 
 # bunch of stuff taken from the .img
 var version:int = 0
@@ -223,6 +224,11 @@ func triggerLowerParse(thing:Dictionary):
 
 func lowerParse(thing:Dictionary):
 	match(thing['_dirName']):
+		"bgm":
+			print('bgm: ', thing["_value"])
+			bgmPlayer.stream = MapleFileUtils.load_song(thing["_value"])
+			bgmPlayer.play()
+			return
 		'VRTop':
 			VRBounds[0] = thing['_value']
 		'VRLeft':

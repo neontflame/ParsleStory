@@ -1,5 +1,5 @@
 extends Node
-class_name FileUtils
+class_name MapleFileUtils
 
 static func get_wz_folder_path(wz:String):
 	return "mapleExport/%s.wz" % wz
@@ -24,3 +24,16 @@ static func load_json_from_file(path:String):
 	jsonCache[path] = JSON.parse_string(jsonToLoad)
 	
 	return jsonCache[path]
+
+static func load_song(song:String):
+	var leSplit:Array = song.split("/", false)
+	var songpath = get_user_path() + "/" + get_wz_folder_path("Sound")
+	songpath += "/%s.img/%s.img/%s.mp3" % [leSplit[0], leSplit[0], leSplit[1]]
+	
+	var bytery = FileAccess.get_file_as_bytes(songpath)
+	var mpstream = AudioStreamMP3.new()
+	
+	mpstream.data = bytery
+	mpstream.loop = true
+	
+	return mpstream

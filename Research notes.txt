@@ -18,9 +18,25 @@ tile:
 portal stuff:
 	on map load:
 		- pn: portal name, basically what kind of portal is this
-			- sp: start point
 			- out00: comes out this end
 			- in00: comes in this end
+
+			- sp: start point
+			- pi - portal invisible
+			- pv - portal visible
+			- pc - collision
+			- pg - changeable
+			- tp - town portal
+			- ps - script
+			- pgi - changeable invisible
+			- psi - script invisible
+			- pcs - script collision
+			- ph - hidden
+			- psh - script hidden
+			- pcj - collision vertical jump
+			- pci - collision custom impulse
+			- pcig - look we dont know what the fuck this one does ok
+
 		- pt: portal type. It's more specific
 			- 0: Start point
 			- 1: Invisible

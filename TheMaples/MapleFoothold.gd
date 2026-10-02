@@ -1,7 +1,7 @@
 extends Line2D
 class_name MapleFootholdLine
 
-var fuckinLayer = 0
+var layer = 0
 
 func createFootholdLine(pos1:Vector2i, pos2:Vector2i, jumpthru:bool):
 	clear_points()

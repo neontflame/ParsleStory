@@ -83,7 +83,7 @@ func makeBg(thing:Dictionary):
 			var isOnFront:bool = (thingle["front"]["_value"] == 1.0)
 			var isFlipped:bool = (thingle["f"]["_value"] == 1.0)
 			
-			var backery = load("res://TheMaples/MapleBg.tscn").instantiate()
+			var backery = load("res://ParsleScripts/MapleBg.tscn").instantiate()
 			
 			if isOnFront:
 				$BGFront.add_child(backery)
@@ -116,7 +116,7 @@ func makeTile(type:String, thing:Dictionary):
 			var variation:String = thingle["u"]["_value"]
 			var subvar:int = round(thingle["no"]["_value"])
 			
-			var tilery = load("res://TheMaples/MapleTile.tscn").instantiate()
+			var tilery = load("res://ParsleScripts/MapleTile.tscn").instantiate()
 			tilery.setup(type, variation, subvar)
 			tilery.position = pos
 			# Weird fuckin mystery equation but hey if it works
@@ -155,7 +155,7 @@ func makeObj(thing:Dictionary):
 			var subsubvar:String = thingle["l2"]["_value"]
 			var isFlipped:bool = (thingle["f"]["_value"] == 1.0)
 			
-			var objectery = load("res://TheMaples/MapleObj.tscn").instantiate()
+			var objectery = load("res://ParsleScripts/MapleObj.tscn").instantiate()
 			objectery.setup(objectStyle, variation, subvar, subsubvar)
 			objectery.position = pos
 			# Weird fuckin mystery number again !
@@ -189,7 +189,7 @@ func makeFoothold(thing:Dictionary):
 								canFallThrough = footness["forbidFallDown"]["_value"] != 1.0
 								print(canFallThrough)
 							
-							var footery = load("res://TheMaples/MapleFoothold.tscn").instantiate()
+							var footery = load("res://ParsleScripts/MapleFoothold.tscn").instantiate()
 							footery.createFootholdLine(pos1, pos2, canFallThrough)
 							footery.layer = thingie
 							$Footholds.add_child(footery)
@@ -207,7 +207,7 @@ func makePortal(thing:Dictionary):
 			var targetMap:int = int(thingle["tm"]["_value"])
 			var targetPortal:String = thingle["tn"]["_value"]
 			
-			var portal = load("res://TheMaples/MaplePortal.tscn").instantiate()
+			var portal = load("res://ParsleScripts/MaplePortal.tscn").instantiate()
 			portal.setup(portalName, portalType)
 			portal.position = pos
 			portal.targetMap = targetMap
